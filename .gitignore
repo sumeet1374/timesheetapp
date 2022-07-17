@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/front-end/timesheet-app/node_modules
+/front-end/timesheet-app/.pnp
+/front-end/timesheet-app.pnp.js
+
+# testing
+/front-end/timesheet-app/coverage
+
+# production
+/front-end/timesheet-app/build
+
+# misc
+/front-end/timesheet-app/.DS_Store
+/front-end/timesheet-app/.env.local
+/front-end/timesheet-app/.env.development.local
+/front-end/timesheet-app/.env.test.local
+/front-end/timesheet-app/.env.production.local
+
+/front-end/timesheet-app/npm-debug.log*
+/front-end/timesheet-app/yarn-debug.log*
+/front-end/timesheet-app/yarn-error.log*
