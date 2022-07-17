@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Navigation = (props)=> {
 
@@ -40,8 +41,8 @@ const Navigation = (props)=> {
     }
  
     useEffect(()=> {
-        const listener = (e)=>{ console.log(e.target);menuToggle(e,"document",false);
-        };// setSetupMenuToggle(false);setSecurityMenuToggle(false);setUserMenuToggle(false);setBreadCrumbToggle(false);
+        const listener = (e)=>{ menuToggle(e,"document",false);};
+        
         document.addEventListener("click",listener);
 
         return ()=>  document.removeEventListener("click",listener);
@@ -67,19 +68,20 @@ const Navigation = (props)=> {
    
 
     return (
+        <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-violet" >
             <div className="container-fluid ">
-                <a href="#" className="navbar-brand"><i className="bi bi-calendar-week"></i> TimeSheet</a>
+                <Link to="/" className="navbar-brand"><i className="bi bi-calendar-week"></i> TimeSheet</Link>
                 <button className="navbar-toggler" onClick={(e)=>menuToggle(e,"breadCrumb",!breadCrumbToggle)}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={showBreadCrumbClass()} id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">My Timesheet</a>
+                            <Link className="nav-link" to="mytimesheet">My Timesheet</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Teams</a>
+                            <Link to="teams" className="nav-link" >Teams</Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" role="button" href="#" onClick={(e)=> menuToggle(e,"setup",true)}>Setup</a>
@@ -129,6 +131,8 @@ const Navigation = (props)=> {
                
             </div>
         </nav>
+        {props.children}
+        </>
     )
 
 };

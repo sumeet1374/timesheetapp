@@ -14,7 +14,8 @@ function App() {
   item.items[1].items.push({ name:"item7",items:[],hasChildren:0});
   return (
     
-    <Navigation/>
+  <h1>Home</h1>
+    
     // <TreeView list={item}></TreeView>
     
   );
