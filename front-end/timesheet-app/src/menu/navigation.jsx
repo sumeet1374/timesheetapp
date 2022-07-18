@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 
 const Navigation = (props)=> {
 
@@ -7,6 +7,10 @@ const Navigation = (props)=> {
     const [securityMenuToggle,setSecurityMenuToggle] = useState(false);
     const [userMenuToggle,setUserMenuToggle] = useState(false);
     const [breadCrumbToggle,setBreadCrumbToggle] = useState(false);
+
+    let activeStyle = {
+        "background-color": "#7a0e9e"
+    }
 
     function menuToggle(e,menuName,toggle){
         
@@ -78,16 +82,16 @@ const Navigation = (props)=> {
                 <div className={showBreadCrumbClass()} id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="mytimesheet">My Timesheet</Link>
+                            <NavLink className="nav-link" to="mytimesheet">My Timesheet</NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="teams" className="nav-link" >Teams</Link>
+                            <NavLink className="nav-link"  to="teams" >Teams</NavLink>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" role="button" href="#" onClick={(e)=> menuToggle(e,"setup",true)}>Setup</a>
                             <ul className={showMenuClass(setupMenuToggle)}>
                                 <li>
-                                    <a className="dropdown-item" href="#" onClick={(e)=> menuToggle(e,"setup",false)} >Accounts</a>
+                                    <NavLink className="dropdown-item" to="setup/accounts" style={({ isActive }) => isActive ? activeStyle : undefined } onClick={(e)=> menuToggle(e,"setup",false)} >Accounts</NavLink>
                                 </li>
                                 <li>
                                     <a className="dropdown-item" href="#" onClick={(e)=> menuToggle(e,"setup",false)}>Projects</a>

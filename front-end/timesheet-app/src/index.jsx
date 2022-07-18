@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import MyTimesheet from './features/mytimesheet/MyTimesheet';
 import Teams from './features/teams/Teams';
+import Accounts from './features/setup/accounts/Accounts';
 import Navigation from './menu/navigation';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ root.render(
         <Route path="/" element={<App />}/>
         <Route path="mytimesheet" element={<MyTimesheet />} />
         <Route path="teams" element={<Teams/>}/>
+        <Route path="setup/accounts" element={<Accounts/>} />
       </Routes>
       </Navigation>
     </BrowserRouter>
